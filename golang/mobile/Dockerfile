@@ -45,7 +45,7 @@ RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
 
 # install gomobile
-RUN go get golang.org/x/mobile/cmd/gomobile && gomobile init
+RUN go get golang.org/x/mobile/cmd/gomobile && gomobile init -ndk /opt/android
 
 # install go package
 RUN go get golang.org/x/sys/unix && \
