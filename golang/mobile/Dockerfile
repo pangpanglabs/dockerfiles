@@ -25,6 +25,7 @@ RUN dpkg --add-architecture i386 && \
     chown -R root:root $ANDROID_HOME && \
 
     # Install NDK
+    rm -rf /opt/android-ndk-tmp \
     mkdir /opt/android-ndk-tmp \
     cd /opt/android-ndk-tmp && wget -q https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip \
     cd /opt/android-ndk-tmp && unzip -q android-ndk-r13b-linux-x86_64.zip \
