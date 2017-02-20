@@ -60,7 +60,7 @@ WORKDIR $GOPATH
 RUN go get golang.org/x/mobile/cmd/gomobile && gomobile init -ndk $ANDROID_NDK_HOME
 
 # install go package
-RUN RUN go get golang.org/x/sys/... && \
+RUN go get golang.org/x/sys/... && \
     go get golang.org/x/text/... && \
     go get golang.org/x/net/... && \
     go get golang.org/x/crypto/...
