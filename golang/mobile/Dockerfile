@@ -25,15 +25,15 @@ RUN dpkg --add-architecture i386 && \
     chown -R root:root $ANDROID_HOME && \
 
     # Install NDK
-    rm -rf /opt/android-ndk-tmp \
-    mkdir /opt/android-ndk-tmp \
-    cd /opt/android-ndk-tmp && wget -q https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip \
-    cd /opt/android-ndk-tmp && unzip -q android-ndk-r13b-linux-x86_64.zip \
-    cd /opt/android-ndk-tmp && mv ./android-ndk-r13b ${ANDROID_NDK_HOME} \
-    rm -rf /opt/android-ndk-tmp \
+    rm -rf /opt/android-ndk-tmp && \
+    mkdir /opt/android-ndk-tmp && \
+    cd /opt/android-ndk-tmp && wget -q https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip && \
+    cd /opt/android-ndk-tmp && unzip -q android-ndk-r13b-linux-x86_64.zip && \
+    cd /opt/android-ndk-tmp && mv ./android-ndk-r13b ${ANDROID_NDK_HOME} && \
+    rm -rf /opt/android-ndk-tmp && \
 
     # Copy platforms
-    cp -R $ANDROID_HOME/platforms/* $ANDROID_NDK_HOME/platforms/ \
+    cp -R $ANDROID_HOME/platforms/* $ANDROID_NDK_HOME/platforms/ && \
 
     # Clean up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
