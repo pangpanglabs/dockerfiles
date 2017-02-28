@@ -5,7 +5,6 @@ MAINTAINER pangpanglab <pangpanglab@p2shop.cn>
 RUN apt-get update
 
 RUN apt-get install -y apt-utils
-RUN apt-get install -y build-essential libpq-dev
 
 # net tools
 RUN apt-get install -y net-tools
@@ -20,6 +19,8 @@ RUN wget --no-cookies \
 	-O jdk-8-linux-x64.tar.gz
 
 RUN tar xzf jdk-8-linux-x64.tar.gz
+
+RUN rm jdk-8-linux-x64.tar.gz
 
 RUN mkdir /usr/java; \
 	mv ./jdk1.8.0_121 /usr/java/. 
