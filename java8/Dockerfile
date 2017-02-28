@@ -18,5 +18,4 @@ WORKDIR /usr/java
 RUN ln -s jdk1.8.0_121 latest		
 
 ENV JAVA_HOME /usr/java/latest
-RUN export JAVA_HOME
-ENV PATH=$JAVA_HOME/bin:$PATH
+ENV PATH $JAVA_HOME/bin:$PATH

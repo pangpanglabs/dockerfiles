@@ -1,0 +1,7 @@
+coordinator=true
+node-scheduler.include-coordinator=true
+http-server.http.port=$HTTP_PORT
+query.max-memory=$QUERY_MAX
+query.max-memory-per-node=$QUERY_MAX_NODE
+discovery-server.enabled=true
+discovery.uri=$DISCOVERY_URI
