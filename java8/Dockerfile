@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
 	apt-utils \
 	net-tools \
         curl \
+        vim \
         mysql-client libmysqlclient-dev \
 	&& apt-get clean       
 
