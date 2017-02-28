@@ -10,6 +10,9 @@ RUN apt-get install -y build-essential libpq-dev
 # net tools
 RUN apt-get install -y net-tools
 
+# wget
+RUN apt-get install -y wget
+
 RUN wget --no-cookies \
 	--no-check-certificate \
 	--header "Cookie: oraclelicense=accept-securebackup-cookie" \
