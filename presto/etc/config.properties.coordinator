@@ -1,7 +1,7 @@
 coordinator=true
 node-scheduler.include-coordinator=true
-http-server.http.port=$HTTP_PORT
-query.max-memory=$QUERY_MAX
-query.max-memory-per-node=$QUERY_MAX_NODE
+http-server.http.port=8080
+query.max-memory=ENV_QUERY_MAX
+query.max-memory-per-node=ENV_QUERY_MAX_NODE
 discovery-server.enabled=true
-discovery.uri=$DISCOVERY_URI
+discovery.uri=http://ENV_COORDINATOR_SERVER:8080

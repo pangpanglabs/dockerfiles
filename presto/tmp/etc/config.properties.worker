@@ -1,0 +1,5 @@
+coordinator=false
+http-server.http.port=8080
+query.max-memory=$QUERY_MAX
+query.max-memory-per-node=$QUERY_MAX_NODE
+discovery.uri=http://$COORDINATOR_SERVER:8080
