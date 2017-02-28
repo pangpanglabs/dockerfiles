@@ -5,7 +5,7 @@ MAINTAINER pangpanglab <pangpanglab@p2shop.cn>
 RUN apt-get update && apt-get install -y \
 	apt-utils \
 	net-tools \
-	wget \
+        curl \
         mysql-client libmysqlclient-dev \
 	&& apt-get clean       
 
