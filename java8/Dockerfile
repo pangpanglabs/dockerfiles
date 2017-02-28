@@ -22,10 +22,10 @@ RUN wget --no-cookies \
 RUN tar xzf jdk-8-linux-x64.tar.gz
 
 RUN mkdir /usr/java; \
-	mv ./jdk1.8.0_12 /usr/java/. 
+	mv ./jdk1.8.0_121 /usr/java/. 
 
 RUN cd /usr/java; \
-	ln -s jdk1.8.0_12 latest
+	ln -s jdk1.8.0_121 latest
 
 ENV JAVA_HOME /usr/java/latest
 RUN export JAVA_HOME
