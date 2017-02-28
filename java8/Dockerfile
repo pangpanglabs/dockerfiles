@@ -2,35 +2,21 @@ FROM ubuntu:14.04
 
 MAINTAINER pangpanglab <pangpanglab@p2shop.cn> 
 
-RUN apt-get update
+RUN apt-get update && apt-get install -y \
+	apt-utils \
+	net-tools \
+	wget \
+        mysql-client libmysqlclient-dev \
+	&& apt-get clean       
 
-RUN apt-get install -y apt-utils
-
-# net tools
-RUN apt-get install -y net-tools
-
-# wget
-RUN apt-get install -y wget
-
-RUN wget --no-cookies \
-	--no-check-certificate \
-	--header "Cookie: oraclelicense=accept-securebackup-cookie" \
-	http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.tar.gz \
-	-O jdk-8-linux-x64.tar.gz; \
-    tar xzf jdk-8-linux-x64.tar.gz; \
-    rm jdk-8-linux-x64.tar.gz		
-
-RUN mkdir /usr/java; \
-	mv ./jdk1.8.0_121 /usr/java/. 
-
-RUN cd /usr/java; \
-	ln -s jdk1.8.0_121 latest
+RUN mkdir -p /usr/java \
+	&& curl -SL --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+		"http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.tar.gz" \
+	| tar -xzC /usr/java 
+ 
+WORKDIR /usr/java
+RUN ln -s jdk1.8.0_121 latest		
 
 ENV JAVA_HOME /usr/java/latest
 RUN export JAVA_HOME
-RUN export PATH=$JAVA_HOME/bin:$PATH
-
-# for mysql client
-RUN apt-get install -y mysql-client libmysqlclient-dev
-
-RUN apt-get clean
+ENV PATH=$JAVA_HOME/bin:$PATH
