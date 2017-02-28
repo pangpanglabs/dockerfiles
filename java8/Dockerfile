@@ -2,14 +2,25 @@ FROM ubuntu:14.04
 
 MAINTAINER pangpanglab <pangpanglab@p2shop.cn> 
 
-RUN apt-get update && apt-get install -y openjdk-8-jdk
+wget --no-cookies \
+--no-check-certificate \
+--header "Cookie: oraclelicense=accept-securebackup-cookie" \
+http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.tar.gz \
+-O jdk-8-linux-x64.tar.gz
 
-# Fix certificate issues, found as of # https://bugs.launchpad.net/ubuntu/+source/ca-certificates-java/+bug/983302 
-RUN apt-get update && \ 
-	apt-get install ca-certificates-java && \ 
-	update-ca-certificates -f; 
+RUN tar xzf jdk-8-linux-x64.tar.gz
 
-RUN apt-get install --assume-yes apt-utils
+RUN mkdir /usr/java; \
+	mv ./jdk1.8.0_12 /usr/java/. 
+
+RUN cd /usr/java; \
+	ln -s jdk1.8.0_12 latest
+
+ENV JAVA_HOME /usr/java/latest
+RUN export JAVA_HOME
+RUN export PATH=$JAVA_HOME/bin:$PATH
+
+RUN apt-get install -y apt-utils
 RUN apt-get install -y build-essential libpq-dev
 
 # net tools
@@ -19,8 +30,3 @@ RUN apt-get install -y net-tools
 RUN apt-get install -y mysql-client libmysqlclient-dev
 
 RUN apt-get clean
-
-#Setup JAVA_HOME, this is useful for docker commandline
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/ RUN export JAVA_HOME
-RUN export JAVA_HOME
-RUN export PATH=$JAVA_HOME/bin:$PATH
