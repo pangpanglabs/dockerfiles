@@ -16,11 +16,9 @@ RUN wget --no-cookies \
 	--no-check-certificate \
 	--header "Cookie: oraclelicense=accept-securebackup-cookie" \
 	http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.tar.gz \
-	-O jdk-8-linux-x64.tar.gz
-
-RUN tar xzf jdk-8-linux-x64.tar.gz
-
-RUN rm jdk-8-linux-x64.tar.gz
+	-O jdk-8-linux-x64.tar.gz; \
+    tar xzf jdk-8-linux-x64.tar.gz; \
+    rm jdk-8-linux-x64.tar.gz		
 
 RUN mkdir /usr/java; \
 	mv ./jdk1.8.0_121 /usr/java/. 
