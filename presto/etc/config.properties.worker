@@ -2,4 +2,4 @@ coordinator=false
 http-server.http.port=8080
 query.max-memory=ENV_QUERY_MAX
 query.max-memory-per-node=ENV_QUERY_MAX_NODE
-discovery.uri=http://ENV_COORDINATOR_SERVER:8080
+discovery.uri=http://ENV_COORDINATOR_SERVER_PORT
