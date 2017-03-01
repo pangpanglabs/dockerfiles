@@ -11,3 +11,7 @@ RUN mkdir -p /opt/pangpang \
 
 RUN curl https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/${PRESTO_VERSION}/presto-cli-${PRESTO_VERSION}-executable.jar -o /opt/pangpang/presto-server-${PRESTO_VERSION}/bin/presto
 RUN chmod a+x /opt/pangpang/presto-server-${PRESTO_VERSION}/bin/presto
+
+RUN apt-get update && apt-get install -y \
+	python \
+	uuid
