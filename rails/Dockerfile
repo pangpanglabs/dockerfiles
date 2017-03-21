@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install --assume-yes apt-utils \
         vim \
   	&& rm -rf /var/lib/apt/lists/*
 
-OPY Gemfile* /tmp/
+COPY Gemfile* /tmp/
 
 WORKDIR /tmp
 RUN bundle install
