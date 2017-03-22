@@ -11,6 +11,8 @@ RUN mkdir /opt && \
     tar xfz /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz -C /opt && \
     rm /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
+RUN apk add --no-cache bash
+
 ADD start-kafka.sh /usr/bin/start-kafka.sh
 ADD create-topics.sh /usr/bin/create-topics.sh
 
