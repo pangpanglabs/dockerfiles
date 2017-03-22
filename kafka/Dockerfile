@@ -1,11 +1,9 @@
-FROM pangpanglabs/java8
+FROM openjdk:8-jdk-alpine
 MAINTAINER pangpanglab <pangpanglab@p2shop.cn> 
 
 ENV KAFKA_VERSION="0.10.2.0"
 ENV SCALA_VERSION="2.12"
 ENV KAFKA_HOME /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}
-
-RUN apt-get update && apt-get install -y wget && apt-get clean       
 
 RUN url="http://apache.mirror.cdnetworks.com/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz" && \
     wget -q "${url}" -O "/tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz" && \
