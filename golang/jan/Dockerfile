@@ -19,4 +19,5 @@ RUN go get go.uber.org/zap && \
     go get github.com/go-xorm/xorm && \
     go get github.com/urfave/cli && \
     go get github.com/satori/go.uuid && \
-    go get github.com/google/go-querystring/query
+    go get github.com/google/go-querystring/query && \
+    go get github.com/go-kit/kit...
