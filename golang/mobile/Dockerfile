@@ -41,7 +41,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get clean
 
 ## install golang
-ENV GOLANG_VERSION 1.8
+ENV GOLANG_VERSION 1.8.3
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
 ENV GOLANG_DOWNLOAD_SHA256 53ab94104ee3923e228a2cb2116e5e462ad3ebaeea06ff04463479d7f12d27ca
 
@@ -60,7 +60,17 @@ WORKDIR $GOPATH
 RUN go get golang.org/x/mobile/cmd/gomobile && gomobile init -ndk $ANDROID_NDK_HOME
 
 # install go package
-RUN go get golang.org/x/sys/... && \
-    go get golang.org/x/text/... && \
-    go get golang.org/x/net/... && \
-    go get golang.org/x/crypto/...
+RUN go get go.uber.org/zap && \
+    go get github.com/dgrijalva/jwt-go && \
+    go get github.com/go-sql-driver/mysql && \
+    go get github.com/mattn/go-sqlite3 && \
+    go get github.com/spf13/viper && \
+    go get github.com/labstack/echo && \
+    go get github.com/go-xorm/xorm && \
+    go get github.com/urfave/cli && \
+    go get github.com/satori/go.uuid && \
+    go get github.com/google/go-querystring/query && \
+    go get github.com/go-kit/kit/... && \
+    go get github.com/pangpanglabs/goutils/... && \
+    go get github.com/asaskevich/govalidator && \
+    go get go get github.com/sirupsen/logrus
