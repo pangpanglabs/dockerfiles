@@ -23,4 +23,4 @@ RUN go get go.uber.org/zap && \
     go get github.com/go-kit/kit/... && \
     go get github.com/pangpanglabs/goutils/... && \
     go get github.com/asaskevich/govalidator && \
-    go get go get github.com/sirupsen/logrus
+    go get github.com/sirupsen/logrus
