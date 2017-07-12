@@ -43,7 +43,7 @@ RUN dpkg --add-architecture i386 && \
 ## install golang
 ENV GOLANG_VERSION 1.8.3
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
-ENV GOLANG_DOWNLOAD_SHA256 53ab94104ee3923e228a2cb2116e5e462ad3ebaeea06ff04463479d7f12d27ca
+ENV GOLANG_DOWNLOAD_SHA256 5f5dea2447e7dcfdc50fa6b94c512e58bfba5673c039259fd843f68829d99fa6
 
 RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
 	&& echo "$GOLANG_DOWNLOAD_SHA256  golang.tar.gz" | sha256sum -c - \
