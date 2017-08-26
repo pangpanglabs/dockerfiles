@@ -1,7 +1,7 @@
-FROM golang:1.8
+FROM golang:1.9
 
 # setup swagger-ui
-ENV SWAGGER_UI_VERSION=2.2.8
+ENV SWAGGER_UI_VERSION=3.1.7
 ENV API_URL=/swagger
 RUN mkdir -p /swagger-ui && \
     curl -fsSL https://github.com/swagger-api/swagger-ui/archive/v$SWAGGER_UI_VERSION.tar.gz | tar xzC / && \
