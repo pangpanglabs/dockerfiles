@@ -1,5 +1,8 @@
 0.0.0.0
-root /www
-browse
+tls /etc/server.crt /etc/server.key
 log stdout
 errors stdout
+proxy / https://192.168.1.104:6000 {
+        transparent
+        insecure_skip_verify
+}
