@@ -20,9 +20,14 @@ RUN go get go.uber.org/zap && \
     go get github.com/urfave/cli && \
     go get github.com/satori/go.uuid && \
     go get github.com/google/go-querystring/query && \
-    go get github.com/go-kit/kit/... && \
+    go get github.com/go-kit/kit/transport/http && \
+    go get github.com/go-kit/kit/circuitbreaker && \
+    go get github.com/go-kit/kit/endpoint && \
+    go get github.com/go-kit/kit/log && \
+    go get github.com/go-kit/kit/ratelimit && \
+    go get github.com/go-kit/kit/tracing/opentracing && \
+    go get github.com/go-kit/kit/transport/grpc && \
     go get github.com/pangpanglabs/goutils/... && \
     go get github.com/asaskevich/govalidator && \
     go get github.com/sirupsen/logrus && \
     go get github.com/garyburd/redigo/redis
-
