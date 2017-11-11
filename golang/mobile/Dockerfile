@@ -2,9 +2,9 @@ FROM openjdk:8
 
 MAINTAINER Jang Jaehue <jaehue@jang.io>
 
-ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/tools_r25.2.3-linux.zip" \
-    ANDROID_BUILD_TOOLS_VERSION=25.0.2 \
-    ANDROID_APIS="android-10,android-15,android-16,android-17,android-18,android-19,android-20,android-21,android-22,android-23,android-24,android-25" \
+
+ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip" \
+    ANDROID_BUILD_TOOLS_VERSION=26.0.2 \
     ANDROID_HOME="/opt/android" \
     ANDROID_NDK_HOME="/opt/android-ndk"
 
@@ -20,16 +20,19 @@ RUN dpkg --add-architecture i386 && \
     mkdir android && cd android && \
     wget -O tools.zip ${ANDROID_SDK_URL} && \
     unzip tools.zip && rm tools.zip && \
-    echo y | android update sdk -a -u -t platform-tools,${ANDROID_APIS},build-tools-${ANDROID_BUILD_TOOLS_VERSION} && \
+    mkdir ~/.android && touch ~/.android/repositories.cfg && \
+    yes | /opt/android/tools/bin/sdkmanager --licenses && \
+    /opt/android/tools/bin/sdkmanager "build-tools;26.0.2" "platform-tools" "tools"  "platforms;android-26" && \
+    /opt/android/tools/bin/sdkmanager --update && \
     chmod a+x -R $ANDROID_HOME && \
     chown -R root:root $ANDROID_HOME && \
 
     # Install NDK
     rm -rf /opt/android-ndk-tmp && \
     mkdir /opt/android-ndk-tmp && \
-    cd /opt/android-ndk-tmp && wget -q https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip && \
-    cd /opt/android-ndk-tmp && unzip -q android-ndk-r13b-linux-x86_64.zip && \
-    cd /opt/android-ndk-tmp && mv ./android-ndk-r13b ${ANDROID_NDK_HOME} && \
+    cd /opt/android-ndk-tmp && wget -q https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip && \
+    cd /opt/android-ndk-tmp && unzip -q android-ndk-r14b-linux-x86_64.zip && \
+    cd /opt/android-ndk-tmp && mv ./android-ndk-r14b ${ANDROID_NDK_HOME} && \
     rm -rf /opt/android-ndk-tmp && \
 
     # Copy platforms
@@ -41,9 +44,9 @@ RUN dpkg --add-architecture i386 && \
     apt-get clean
 
 ## install golang
-ENV GOLANG_VERSION 1.9
+ENV GOLANG_VERSION 1.9.2
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
-ENV GOLANG_DOWNLOAD_SHA256 d70eadefce8e160638a9a6db97f7192d8463069ab33138893ad3bf31b0650a79
+ENV GOLANG_DOWNLOAD_SHA256 de874549d9a8d8d8062be05808509c09a88a248e77ec14eb77453530829ac02b
 
 RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
 	&& echo "$GOLANG_DOWNLOAD_SHA256  golang.tar.gz" | sha256sum -c - \
