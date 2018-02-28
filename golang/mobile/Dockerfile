@@ -44,9 +44,9 @@ RUN dpkg --add-architecture i386 && \
     apt-get clean
 
 ## install golang
-ENV GOLANG_VERSION 1.9.2
+ENV GOLANG_VERSION 1.10
 ENV GOLANG_DOWNLOAD_URL https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz
-ENV GOLANG_DOWNLOAD_SHA256 de874549d9a8d8d8062be05808509c09a88a248e77ec14eb77453530829ac02b
+ENV GOLANG_DOWNLOAD_SHA256 b5a64335f1490277b585832d1f6c7f8c6c11206cba5cd3f771dcb87b98ad1a33
 
 RUN curl -fsSL "$GOLANG_DOWNLOAD_URL" -o golang.tar.gz \
 	&& echo "$GOLANG_DOWNLOAD_SHA256  golang.tar.gz" | sha256sum -c - \
@@ -73,13 +73,7 @@ RUN go get go.uber.org/zap && \
     go get github.com/urfave/cli && \
     go get github.com/satori/go.uuid && \
     go get github.com/google/go-querystring/query && \
-    go get github.com/go-kit/kit/transport/http && \
-    go get github.com/go-kit/kit/circuitbreaker && \
-    go get github.com/go-kit/kit/endpoint && \
-    go get github.com/go-kit/kit/log && \
-    go get github.com/go-kit/kit/ratelimit && \
-    go get github.com/go-kit/kit/tracing/opentracing && \
-    go get github.com/go-kit/kit/transport/grpc && \
+    go get github.com/go-kit/kit/... && \
     go get github.com/pangpanglabs/goutils/... && \
     go get github.com/asaskevich/govalidator && \
     go get github.com/sirupsen/logrus
