@@ -31,4 +31,7 @@ RUN go get go.uber.org/zap && \
     go get github.com/jinzhu/configor && \
     go get github.com/patrickmn/go-cache && \
     go get github.com/unrolled/render && \
-    go get github.com/urfave/negroni
+    go get github.com/urfave/negroni && \
+    go get github.com/Shopify/sarama && \
+    go get github.com/bsm/sarama-cluster && \
+    go get github.com/confluentinc/confluent-kafka-go/kafka
