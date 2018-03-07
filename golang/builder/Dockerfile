@@ -34,5 +34,4 @@ RUN go get go.uber.org/zap && \
     go get github.com/urfave/negroni && \
     go get github.com/Shopify/sarama && \
     go get github.com/bsm/sarama-cluster && \
-    go get github.com/confluentinc/confluent-kafka-go/kafka && \
     go get github.com/colinmarc/go-presto
