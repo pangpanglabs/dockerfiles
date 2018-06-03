@@ -4,7 +4,7 @@ MAINTAINER Jang Jaehue <jaehue@jang.io>
 
 
 ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip" \
-    ANDROID_BUILD_TOOLS_VERSION=26.0.2 \
+    ANDROID_BUILD_TOOLS_VERSION=27.0.3 \
     ANDROID_HOME="/opt/android" \
     ANDROID_NDK_HOME="/opt/android-ndk"
 
@@ -22,7 +22,7 @@ RUN dpkg --add-architecture i386 && \
     unzip tools.zip && rm tools.zip && \
     mkdir ~/.android && touch ~/.android/repositories.cfg && \
     yes | /opt/android/tools/bin/sdkmanager --licenses && \
-    /opt/android/tools/bin/sdkmanager "build-tools;26.0.2" "platform-tools" "tools"  "platforms;android-26" && \
+    /opt/android/tools/bin/sdkmanager "build-tools;27.0.3" "platform-tools" "tools"  "platforms;android-27" && \
     /opt/android/tools/bin/sdkmanager --update && \
     chmod a+x -R $ANDROID_HOME && \
     chown -R root:root $ANDROID_HOME && \
