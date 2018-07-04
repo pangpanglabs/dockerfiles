@@ -38,4 +38,5 @@ RUN go get go.uber.org/zap && \
     go get github.com/bsm/sarama-cluster && \
     go get github.com/colinmarc/go-presto && \
     go get github.com/aliyun/aliyun-oss-go-sdk/oss && \
-    go get github.com/360EntSecGroup-Skylar/excelize
+    go get github.com/360EntSecGroup-Skylar/excelize && \
+    go get gopkg.in/go-playground/validator.v9
