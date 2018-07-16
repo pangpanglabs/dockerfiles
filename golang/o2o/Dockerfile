@@ -27,4 +27,4 @@ RUN go get github.com/dgrijalva/jwt-go && \
     go get github.com/patrickmn/go-cache && \
     go get github.com/unrolled/render && \
     go get github.com/urfave/negroni && \
-    go get github.com/garyburd/redigo/redis
+    go get github.com/gomodule/redigo/redis

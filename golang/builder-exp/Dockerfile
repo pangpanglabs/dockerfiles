@@ -26,7 +26,7 @@ RUN go get go.uber.org/zap && \
     go get github.com/pangpanglabs/goutils/... && \
     go get github.com/asaskevich/govalidator && \
     go get github.com/sirupsen/logrus && \
-    go get github.com/garyburd/redigo/redis && \
+    go get github.com/gomodule/redigo/redis && \
     go get github.com/denisenkom/go-mssqldb && \
     go get gopkg.in/mgo.v2 && \
     go get github.com/gorilla/... && \
