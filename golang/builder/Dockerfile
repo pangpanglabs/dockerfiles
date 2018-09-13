@@ -9,6 +9,7 @@ ONBUILD ARG SWAGGER_PATH=/swagger
 ONBUILD RUN sed -i "s|http://petstore.swagger.io/v2/swagger.json|$SWAGGER_PATH|g" /swagger-ui/index.html && \
     sed -i "s|http://example.com/api|$SWAGGER_PATH|g" /swagger-ui/index.html
 
+RUN git clone https://github.com/pangpanglabs/xorm.git /go/src/github.com/go-xorm/xorm
 # install packages
 RUN go get go.uber.org/zap && \
     go get github.com/dgrijalva/jwt-go && \
@@ -16,7 +17,8 @@ RUN go get go.uber.org/zap && \
     go get github.com/mattn/go-sqlite3 && \
     go get github.com/spf13/viper && \
     go get github.com/labstack/echo && \
-    go get github.com/go-xorm/xorm && \
+    go get github.com/go-xorm/core && \
+    go get github.com/go-xorm/builder && \
     go get github.com/urfave/cli && \
     go get github.com/satori/go.uuid && \
     go get github.com/google/go-querystring/query && \
