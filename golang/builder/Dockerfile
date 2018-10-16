@@ -1,7 +1,7 @@
 FROM golang:1.10
 
 # setup swagger-ui
-ENV SWAGGER_UI_VERSION=3.13.4
+ENV SWAGGER_UI_VERSION=3.19.3
 RUN mkdir -p /swagger-ui && \
     curl -fsSL https://github.com/swagger-api/swagger-ui/archive/v$SWAGGER_UI_VERSION.tar.gz | tar xzC / && \
     mv /swagger-ui-$SWAGGER_UI_VERSION/dist/* /swagger-ui/
@@ -24,6 +24,7 @@ RUN go get go.uber.org/zap && \
     go get github.com/google/go-querystring/query && \
     go get github.com/go-kit/kit/... && \
     go get github.com/pangpanglabs/goutils/... && \
+    go get github.com/pangpanglabs/echoswagger && \
     go get github.com/asaskevich/govalidator && \
     go get github.com/sirupsen/logrus && \
     go get github.com/gomodule/redigo/redis && \
@@ -38,4 +39,7 @@ RUN go get go.uber.org/zap && \
     go get github.com/bsm/sarama-cluster && \
     go get github.com/colinmarc/go-presto && \
     go get github.com/aliyun/aliyun-oss-go-sdk/oss && \
-    go get github.com/360EntSecGroup-Skylar/excelize
+    go get github.com/360EntSecGroup-Skylar/excelize && \
+    go get gopkg.in/go-playground/validator.v9 && \
+    go get github.com/RichardKnop/machinery/v1 && \
+    go get github.com/renstrom/shortuuid
