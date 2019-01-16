@@ -10,6 +10,7 @@ ONBUILD RUN sed -i "s|http://petstore.swagger.io/v2/swagger.json|$SWAGGER_PATH|g
     sed -i "s|http://example.com/api|$SWAGGER_PATH|g" /swagger-ui/index.html
 
 RUN git clone https://github.com/pangpanglabs/xorm.git /go/src/github.com/go-xorm/xorm
+
 # install packages
 RUN go get go.uber.org/zap && \
     go get github.com/dgrijalva/jwt-go && \
@@ -22,7 +23,9 @@ RUN go get go.uber.org/zap && \
     go get github.com/urfave/cli && \
     go get github.com/satori/go.uuid && \
     go get github.com/google/go-querystring/query && \
-    go get github.com/go-kit/kit/... && \
+    go get github.com/go-kit/kit/endpoint && \
+    go get github.com/go-kit/kit/transport/http && \
+    go get github.com/go-kit/kit/transport/grpc && \
     go get github.com/pangpanglabs/goutils/... && \
     go get github.com/pangpanglabs/echoswagger && \
     go get github.com/asaskevich/govalidator && \
