@@ -33,7 +33,11 @@ RUN go get go.uber.org/zap && \
     go get github.com/gomodule/redigo/redis && \
     go get github.com/denisenkom/go-mssqldb && \
     go get gopkg.in/mgo.v2 && \
-    go get github.com/gorilla/... && \
+    go get github.com/gorilla/mux && \
+    go get github.com/gorilla/context && \
+    go get github.com/gorilla/securecookie && \
+    go get github.com/gorilla/sessions && \
+    go get github.com/gorilla/websocket && \
     go get github.com/jinzhu/configor && \
     go get github.com/patrickmn/go-cache && \
     go get github.com/unrolled/render && \
