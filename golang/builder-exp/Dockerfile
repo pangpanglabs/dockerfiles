@@ -49,4 +49,6 @@ RUN go get go.uber.org/zap && \
     go get github.com/360EntSecGroup-Skylar/excelize && \
     go get gopkg.in/go-playground/validator.v9 && \
     go get github.com/RichardKnop/machinery/v1 && \
-    go get github.com/renstrom/shortuuid
+    go get github.com/renstrom/shortuuid && \
+    go get github.com/pkg/errors
+
