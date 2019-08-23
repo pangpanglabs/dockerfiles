@@ -10,6 +10,7 @@ ONBUILD RUN sed -i "s|http://petstore.swagger.io/v2/swagger.json|$SWAGGER_PATH|g
     sed -i "s|http://example.com/api|$SWAGGER_PATH|g" /swagger-ui/index.html
 
 RUN git clone https://github.com/pangpanglabs/xorm.git /go/src/github.com/go-xorm/xorm
+RUN mkdir -p /wait-for && curl -L "https://raw.githubusercontent.com/eficode/wait-for/master/wait-for" -o /wait-for/wait-for.sh
 # install packages
 RUN go get go.uber.org/zap && \
     go get github.com/dgrijalva/jwt-go && \
