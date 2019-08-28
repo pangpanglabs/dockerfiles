@@ -1,7 +1,7 @@
-FROM golang:1.11
+FROM golang:1.12
 
 # setup swagger-ui
-ENV SWAGGER_UI_VERSION=3.19.3
+ENV SWAGGER_UI_VERSION=3.23.6
 RUN mkdir -p /swagger-ui && \
     curl -fsSL https://github.com/swagger-api/swagger-ui/archive/v$SWAGGER_UI_VERSION.tar.gz | tar xzC / && \
     mv /swagger-ui-$SWAGGER_UI_VERSION/dist/* /swagger-ui/
