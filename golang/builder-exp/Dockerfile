@@ -52,5 +52,6 @@ RUN go get go.uber.org/zap && \
     go get github.com/renstrom/shortuuid && \
     go get github.com/json-iterator/go && \
     go get github.com/pkg/errors && \
-    go get github.com/kardianos/govendor
+    go get github.com/kardianos/govendor && \
+    go get github.com/stretchr/testify/...
 
