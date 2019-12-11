@@ -42,7 +42,6 @@ RUN go get go.uber.org/zap && \
     go get github.com/unrolled/render && \
     go get github.com/urfave/negroni && \
     go get github.com/Shopify/sarama && \
-    go get github.com/bsm/sarama-cluster && \
     go get github.com/colinmarc/go-presto && \
     go get github.com/prestodb/presto-go-client/presto && \
     go get github.com/aliyun/aliyun-oss-go-sdk/oss && \
