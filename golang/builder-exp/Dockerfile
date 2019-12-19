@@ -51,4 +51,4 @@ RUN go get go.uber.org/zap && \
     go get github.com/json-iterator/go && \
     go get github.com/pkg/errors && \
     go get github.com/kardianos/govendor
-
+RUN go get github.com/RichardKnop/machinery/v1
