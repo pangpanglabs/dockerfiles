@@ -1,4 +1,4 @@
-FROM golang:1.12
+FROM golang:1.13
 
 # setup swagger-ui
 ENV SWAGGER_UI_VERSION=3.23.6
