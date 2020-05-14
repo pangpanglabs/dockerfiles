@@ -1,7 +1,7 @@
 FROM golang:1.13
 
 # setup swagger-ui
-ENV SWAGGER_UI_VERSION=3.23.6
+ENV SWAGGER_UI_VERSION=3.25.2
 RUN mkdir -p /swagger-ui && \
     curl -fsSL https://github.com/swagger-api/swagger-ui/archive/v$SWAGGER_UI_VERSION.tar.gz | tar xzC / && \
     mv /swagger-ui-$SWAGGER_UI_VERSION/dist/* /swagger-ui/
@@ -46,9 +46,12 @@ RUN go get go.uber.org/zap && \
     go get github.com/prestodb/presto-go-client/presto && \
     go get github.com/aliyun/aliyun-oss-go-sdk/oss && \
     go get github.com/360EntSecGroup-Skylar/excelize && \
-    go get gopkg.in/go-playground/validator.v9 && \
+    go get github.com/go-playground/validator/v10 && \
+    go get github.com/RichardKnop/machinery/v1 && \
     go get github.com/renstrom/shortuuid && \
     go get github.com/json-iterator/go && \
     go get github.com/pkg/errors && \
     go get github.com/kardianos/govendor && \
+    go get go.mongodb.org/mongo-driver/mongo && \
     go get github.com/lib/pq
+
